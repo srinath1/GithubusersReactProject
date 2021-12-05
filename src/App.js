@@ -1,31 +1,32 @@
-import React from 'react';
-import { Dashboard, Login, PrivateRoute, AuthWrapper, Error } from './pages';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-
+import React from 'react'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+// import pages
+import Home from './pages/Home'
+import About from './pages/About'
+import SingleCocktail from './pages/SingleCocktail'
+import Error from './pages/Error'
+// import components
+import Navbar from './components/Navbar'
 function App() {
   return (
-    <AuthWrapper>
     <Router>
+    <Navbar/>
     <Switch>
-
-    <PrivateRoute path="/" exact>
-    <Dashboard></Dashboard>
-
-    </PrivateRoute>
-    <Route path="/login">
-    <Login />
-    
-
-    </Route>
-    <Route path="*">
-      <Error/>
-    </Route>
+      <Route exact path="/">
+        <Home/>
+      </Route>
+      <Route exact path="/about">
+        <About/>
+      </Route>
+      <Route exact path="/cocktail/:id">
+      <SingleCocktail/>
+      </Route>
+      <Route exact path="*">
+       <Error/>
+      </Route>
     </Switch>
-   
-     
     </Router>
-    </AuthWrapper>
-  );
+  )
 }
 
-export default App;
+export default App

@@ -1,27 +1,17 @@
-import React from 'react';
-import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+import React from 'react'
+import { Link } from 'react-router-dom'
+
 const Error = () => {
-  return <Wrapper>
-  <h1>404</h1>
-  <h3>The page cannot be found</h3>
-  <Link to="/" className="btn">Back to home</Link>
+  return (
+    <section className="error-page section">
+      <div className="error-container">
+        <h1>oops! its a dead end</h1>
+        <Link to="/" className="btn btn-primary">
+          back home
+        </Link>
+      </div>
+    </section>
+  )
+}
 
-
-  </Wrapper>;
-};
-const Wrapper = styled.section`
-  min-height: 100vh;
-  display: grid;
-  place-items: center;
-  background: var(--clr-primary-10);
-  text-align: center;
-  h1 {
-    font-size: 10rem;
-  }
-  h3 {
-    color: var(--clr-grey-3);
-    margin-bottom: 1.5rem;
-  }
-`;
-export default Error;
+export default Error
